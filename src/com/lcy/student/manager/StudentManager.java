@@ -105,14 +105,12 @@ public class StudentManager {
     public void load() throws IOException, ClassNotFoundException {
         FileInputStream fis = new FileInputStream("Stu.dat");
         ObjectInputStream ois = new ObjectInputStream(fis);
-        try {
-            className = (String) ois.readObject();
-            while (true) {
-                Student it = (Student) ois.readObject();
-                if (it == null) return;
-                students.put(it.getId(), it);
-            }
-        }catch (ClassNotFoundException e);
+        className = (String) ois.readObject();
+        while (true) {
+            Student it = (Student) ois.readObject();
+            if (it == null) return;
+            students.put(it.getId(), it);
+        }
     }
     public StudentManager(String className) {
         this.className = className;
