@@ -26,7 +26,9 @@ public class InputFrame {
             System.out.print("年龄：");
             age = KeyInput.getInt();
 
-            aClass.addStudent(new Student(id, name, age));
+            if(aClass.addStudent(new Student(id, name, age)) == false){
+                System.out.println("添加失败，该学号已经存在！！！");
+            };
         }
     }
 }

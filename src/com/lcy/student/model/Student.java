@@ -41,10 +41,7 @@ public class Student implements Serializable{
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", age=" + age +
-                '}';
+        return "学号："+id+"\t"+"姓名：" + name + "\t" +
+                "年龄：" + age;
     }
 }

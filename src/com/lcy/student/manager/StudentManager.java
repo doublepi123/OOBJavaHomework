@@ -27,7 +27,7 @@ public class StudentManager {
     //add a student
     public boolean addStudent(Student st){
         //Check if the student exist
-        if(students.containsValue(st)) return false;
+        if(students.keySet().contains(st.getId())) return false;
         else {
             students.put(st.getId(),st);
             return true;
