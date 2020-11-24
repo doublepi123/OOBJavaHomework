@@ -4,6 +4,8 @@ import com.lcy.student.manager.StudentManager;
 import com.lcy.student.model.Student;
 import com.lcy.student.util.KeyInput;
 
+import java.io.IOException;
+
 public class StudentMenu {
     private StudentManager aClass;
     private InputFrame input;
@@ -35,7 +37,11 @@ public class StudentMenu {
             choice = KeyInput.getInt();
             switch (choice){
                 case 0:
-                    aClass.save();
+                    try {
+                        aClass.save();
+                    }catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     System.exit(0);
                     break;
                 case 1:

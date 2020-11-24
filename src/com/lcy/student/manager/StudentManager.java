@@ -96,13 +96,23 @@ public class StudentManager {
 //    }
     public void save() throws IOException {
         FileOutputStream fos = new FileOutputStream("Stu.dat");
-        ObjectOutput oos = new ObjectOutputStream(fos);
+        ObjectOutputStream oos = new ObjectOutputStream(fos);
+        oos.writeObject(className);
         for(Student it : students.values()){
             oos.writeObject(it);
         }
     }
-    public void load(){
-        ;
+    public void load() throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream("Stu.dat");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        try {
+            className = (String) ois.readObject();
+            while (true) {
+                Student it = (Student) ois.readObject();
+                if (it == null) return;
+                students.put(it.getId(), it);
+            }
+        }catch (ClassNotFoundException e);
     }
     public StudentManager(String className) {
         this.className = className;
