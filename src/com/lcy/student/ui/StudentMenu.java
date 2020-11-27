@@ -1,7 +1,6 @@
 package com.lcy.student.ui;
 
 import com.lcy.student.manager.StudentManager;
-import com.lcy.student.model.Student;
 import com.lcy.student.util.KeyInput;
 
 import java.io.IOException;
@@ -30,13 +29,7 @@ public class StudentMenu {
     }
 
     public void doMenu(){
-        try{
-            aClass.load();
-        }catch (IOException e) {
-            //e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            //e.printStackTrace();
-        }
+        aClass.load();
         int choice;
         while(true){
             clear();
@@ -45,11 +38,7 @@ public class StudentMenu {
             String id;
             switch (choice){
                 case 0:
-                    try {
-                        aClass.save();
-                    }catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    aClass.save();
                     System.exit(0);
                     break;
                 case 1:
